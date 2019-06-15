@@ -6,13 +6,16 @@ class Admin extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->helper(array('form', 'url'));
+        $this->load->model('Mdashboard');
     }
 
 	public function index()
 	{
         $data['title'] = "ADMIN | Repository TE Unjani";
         $data['page'] = 'DASHBOARD | REPOSITORY TE UNJANI';
-		$data['content'] = "admin/dashboard";
+        $data['content'] = "admin/dashboard";
+        $data['files'] = $this->Mdashboard->getFile();
+
 		$this->load->view('admin/template', $data);	
     }	
     
@@ -61,7 +64,8 @@ class Admin extends CI_Controller {
                 'dosen_pembimbing' => $this->input->post('pembimbing'),
                 'kata_kunci' => $this->input->post('kata_kunci'),
                 'abstrak' => $this->input->post('abstrak'),
-                'gambar_file' => $this->input->post('gambar_file')
+                'gambar_file' => $this->input->post('gambar_file'),
+                'tgl_upload' => date("Y/m/d")
             ];            
                         
             $this->db->insert('files', $dataFile);

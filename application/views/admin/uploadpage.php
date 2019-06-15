@@ -15,7 +15,7 @@
         <div class="form-group">
             <label class="text-success" for="gambar-judul">Pilih Gambar File (opsional)</label>
             <input type="file" id="gambar-judul" name="gambar_file" onchange="uploadImage(this, '<?=base_url()?>')">          
-            <input type="hidden" name="gambar_file" id="gambar_file">
+            <input type="hidden" name="gambar_file" id="gambar_file">            
             <div class="img-place">
                 <!-- IMAGE PLACE HERE AFTER UPLOAD -->
             </div>
@@ -54,7 +54,7 @@
             <p class="help-block">Pilih file yang ingin diupload</p>
         </div>    
         <div class="form-group">
-            <button type="submit" class="btn btn-success">Upload</button>
+            <button type="submit" class="btn btn-success" id="upload-btn">Upload</button>            
         </div>
     </form>    
 </div>
