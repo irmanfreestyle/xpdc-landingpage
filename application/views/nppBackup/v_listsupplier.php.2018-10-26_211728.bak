@@ -1,0 +1,31 @@
+<style>
+	table {
+		margin: 40px auto;
+		width: 600px;
+	}
+	td, th {
+		padding: 5px;
+	}	
+	th {
+		background: #ddd;
+	}
+</style>
+
+<table border="1" style="border-collapse: collapse;">
+	<tr>
+		<th>No</th>
+		<th>Kode Supplier</th>
+		<th>Nama Supplier</th>
+		<th>Email Supplier</th>
+		<th>No Telepon</th>
+	</tr>
+	<?php $no=1; foreach($listsupplier->result() as $supplier): ?>
+		<tr>
+			<td><?= $no++ ?></td>		
+			<td><?= $supplier->kodesupplier ?></td>
+			<td><?= $supplier->nama ?></td>
+			<td><?= $supplier->email ?></td>
+			<td><?= $supplier->notelp ?></td>		
+		</tr>
+	<?php endforeach; ?>
+</table>

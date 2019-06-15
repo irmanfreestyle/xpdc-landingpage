@@ -1,0 +1,56 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Supplier extends CI_Controller {
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('Msupplier');
+	}
+
+	function hapus($id) {
+		$this->db->where(array('kodesupplier' => $id));
+		$this->db->delete('supplier');
+		redirect('../supplier/listsupplier');
+	}
+
+	function save($id="") {
+		$data=array(
+			"kodesupplier"=>$this->input->post('kodesupplier'),
+			"nama"=>$this->input->post('nama'),
+			"email"=>$this->input->post('email'),
+			"notelp"=>$this->input->post('notelp')
+		);
+		$where = array('kodesupplier' => $this->input->post('kodesupplier'));
+		$cek=$this->Msupplier->getsupplier($where)->num_rows();
+		if(!$cek){
+			$this->db->insert('supplier',$data);
+		}else{
+			$this->db->where($where);
+			$this->db->update('supplier',$data);
+		}
+		redirect('../supplier/listsupplier');
+	}
+
+	function input($id = '') {		
+		if($id == '') {
+			$data['row'] = '';
+		} else {
+			$where = array('kodesupplier' => $id);			
+			$data['row'] = $this->Msupplier->getsupplier($where)->row();			
+		}
+		$this->load->view('form_supplier', $data);
+	}
+
+	public function index() {
+		$this->load->view('welcome_message');
+	}
+
+	function listsupplier() {
+		$data['judul'] = "List Supplier";
+		$data['content'] = "v_listsupplier";
+		$data['listsupplier'] = $this->Msupplier->getsupplier();
+		$this->load->view('template', $data);		
+	}
+	
+}

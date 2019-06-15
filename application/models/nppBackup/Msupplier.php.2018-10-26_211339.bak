@@ -1,0 +1,13 @@
+<?php
+// Mbarang.php
+	defined('BASEPATH') OR exit('No direct script access allowed');
+
+	class Msupplier extends CI_Model {
+
+		public function getsupplier()
+		{
+			// ambil dari tabel supplier
+			return $this->db->get('supplier');
+		}
+		
+	}

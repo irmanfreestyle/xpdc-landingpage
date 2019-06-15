@@ -1,0 +1,13 @@
+<form action="<?php echo base_url();?>barang/save" method="post">	
+	<label for="">Kode Barang</label>
+	<input type="text" name="kodebarang" value="<?php echo $row==""?"":$row->kodebarang;?>"> <br>
+	<label for="">Nama Barang</label>
+	<input type="text" name="namabarang"  value="<?php echo $row==""?"":$row->namabarang;?>"> <br>
+	<label for="">Satuan</label>
+	<input type="text" name="satuan"  value="<?php echo $row==""?"":$row->satuan;?>"> <br>
+	<label for="">Harga Jual</label>
+	<input type="text" name="hargajual"  value="<?php echo $row==""?"":$row->hargajual;?>"> <br>
+	<label for="">Harga Beli</label>
+	<input type="text" name="hargabeli"  value="<?php echo $row==""?"":$row->hargabeli;?>"> <br>
+	<button type="submit">Submit</button>
+</form>

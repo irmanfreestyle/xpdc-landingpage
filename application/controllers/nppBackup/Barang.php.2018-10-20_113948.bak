@@ -1,0 +1,52 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Barang extends CI_Controller {
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('Mbarang');
+	}
+
+	public function index() {
+		$this->load->view('welcome_message');
+	}
+
+	function listbarang() {
+		$data['listbarang'] = $this->Mbarang->getbarang();
+		$this->load->view('v_listbarang', $data);
+	}
+
+	function input($id = '') {
+		$data['judul'] = 'Form Barang';
+		if($id == '') {
+			$data['row'] = '';
+		} else {
+			$where = array('kodebarang' => $id);
+			$data['row'] = $this->Mbarang->getbarang($where)->row();
+			//select * from barang where kodebarang='B001'
+		}
+		$this->load->view('form_barang', $data);
+	}
+	function save(){
+		$data=array(
+			"kodebarang"=>$this->input->post('kodebarang'),
+			"namabarang"=>$this->input->post('namabarang'),
+			"satuan"=>$this->input->post('satuan'),
+			"hargajual"=>$this->input->post('hargajual'),
+			"hargabeli"=>$this->input->post('hargabeli'),
+				
+		);
+		$where = array('kodebarang' => $this->input->post('kodebarang'));
+		$cek=$this->Mbarang->getbarang($where)->num_rows();
+		if($cek==0){
+			$this->db->insert('barang',$data);
+		}else{
+			$this->db->where($where);
+			$this->db->update('barang',$data);
+		}
+		redirect('../barang/listbarang');
+
+	}
+	
+}

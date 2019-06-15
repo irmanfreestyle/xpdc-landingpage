@@ -1,0 +1,26 @@
+<a href="<?php echo base_url();?>barang/input/">Tambah data</a>
+<table border="1" style="border-collapse: collapse;">
+	<tr>
+		<th colspan="11">List Barang</th>
+	</tr>
+	<tr>
+		<td>Nomor</td>
+		<td>Kode Barang</td>
+		<td>Nama</td>
+		<td>Satuan</td>
+		<td>Harga Jual</td>
+		<td>Harga Beli</td>
+		<td>Actions</td>
+	</tr>
+	<?php $no = 1; foreach($listbarang->result() as $brg){?>
+		<tr>
+			<th><?= $no++; ?></th>			
+			<td><?= $brg->kodebarang; ?></td>			
+			<td><?= $brg->namabarang; ?></td>
+			<td><?= $brg->satuan; ?></td>
+			<td><?= $brg->hargajual; ?></td>
+			<td><?= $brg->hargabeli; ?></td>
+			<td><a href="<?php echo base_url();?>barang/input/<?php echo $brg->kodebarang;?>">Edit</a></td>
+		</tr>
+	<?php } ?>
+</table>
