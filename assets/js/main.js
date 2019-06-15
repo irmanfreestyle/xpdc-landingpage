@@ -14,7 +14,7 @@ function uploadImage(e, baseUrl) {
             res = JSON.parse(res)
             if(res.status == 'success') {
                 $(".img-place").html(`
-                    <img src="${baseUrl}assets/images/upload/${res.filename}" width="70">
+                    <img style="margin: 10px 0" src="${baseUrl}assets/images/upload/${res.filename}" width="70">
                 `)
             } else {
                 alert('Terjadi Kesalahan '+res.error)
