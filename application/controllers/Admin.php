@@ -43,9 +43,7 @@ class Admin extends CI_Controller {
         $config['upload_path']          = 'assets/files/';
 		$config['allowed_types']        = '*';
         $config['max_size']             = 1000000;
-        $config['encrypt_name'] = TRUE;
-        $new_name = time().$_FILES["file"]['name'];
-        $config['file_name'] = $new_name;
+        $config['encrypt_name'] = TRUE;        
 
 		$this->load->library('upload', $config);
  
@@ -54,8 +52,24 @@ class Admin extends CI_Controller {
             $this->session->set_flashdata('alert', 'error');
             redirect(base_url().'admin/uploadpage', $error);
 		}else{
-            $data = array('upload_data' => $this->upload->data());
-            $this->session->set_flashdata('alert', 'success');
+            $filename = $this->upload->data('file_name');
+            $dataFile = [
+                'nama_file' => $filename,
+                'kategori' => $this->input->post('kategori'),
+                'judul' => $this->input->post('judul'),
+                'pengarang' => $this->input->post('pengarang'),
+                'dosen_pembimbing' => $this->input->post('pembimbing'),
+                'kata_kunci' => $this->input->post('kata_kunci'),
+                'abstrak' => $this->input->post('abstrak'),
+                'gambar_file' => $this->input->post('gambar_file')
+            ];            
+                        
+            $this->db->insert('files', $dataFile);
+
+            if($this->db->affected_rows() > 0) {
+                $this->session->set_flashdata('alert', 'success');
+            }
+
             redirect(base_url().'admin/uploadpage');
 		}
     }

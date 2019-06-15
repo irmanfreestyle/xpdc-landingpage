@@ -14,14 +14,15 @@
     <?php echo form_open_multipart('admin/uploadfile');?>
         <div class="form-group">
             <label class="text-success" for="gambar-judul">Pilih Gambar File (opsional)</label>
-            <input type="file" id="gambar-judul" name="gambar_judul" onchange="uploadImage(this, '<?=base_url()?>')">          
+            <input type="file" id="gambar-judul" name="gambar_file" onchange="uploadImage(this, '<?=base_url()?>')">          
+            <input type="hidden" name="gambar_file" id="gambar_file">
             <div class="img-place">
                 <!-- IMAGE PLACE HERE AFTER UPLOAD -->
             </div>
         </div>
         <div class="form-group">
             <label class="text-success">Pilih Kategori File</label>
-            <select class="form-control">
+            <select class="form-control" name="kategori">
                 <option value="ebook">e-book</option>
                 <option value="skripsi">skripsi</option>
                 <option value="jurnal">jurnal</option>
@@ -29,20 +30,24 @@
         </div>
         <div class="form-group">
             <label class="text-success" for="judul">Judul</label>
-            <input type="text" class="form-control" id="judul" placeholder="Masukan Judul">
+            <input type="text" class="form-control" id="judul" placeholder="Masukan Judul" name="judul">
         </div>
         <div class="form-group">
             <label class="text-success" for="pengarang">Pengarang</label>
-            <input type="text" class="form-control" id="pengarang" placeholder="Masukan Pengarang">
+            <input type="text" class="form-control" id="pengarang" placeholder="Masukan Pengarang" name="pengarang">
         </div>
         <div class="form-group">
             <label class="text-success" for="dosen-pembimbing">Dosen Pembimbing</label>
-            <input type="text" class="form-control" id="dosen-pembimbing" placeholder="Masukan Dosen Pembimbing">
+            <input type="text" class="form-control" id="dosen-pembimbing" placeholder="Masukan Dosen Pembimbing" name="pembimbing">
         </div>
         <div class="form-group">
             <label class="text-success" for="kata-kunci">Kata Kunci</label>
-            <input type="text" class="form-control" id="kata-kunci" placeholder="Masukan Kata Kunci">
+            <input type="text" class="form-control" id="kata-kunci" placeholder="Masukan Kata Kunci" name="kata_kunci">
         </div>        
+        <div class="form-group">
+            <label class="text-success">Abstrak</label>
+            <textarea class="form-control" rows="3" placeholder="Masukan abstrak disini..." name="abstrak"></textarea>
+        </div>
         <div class="form-group">
             <label class="text-success" for="file">Pilih File</label>
             <input type="file" id="file" required name="file">

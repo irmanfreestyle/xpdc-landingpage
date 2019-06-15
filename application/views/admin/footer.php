@@ -1,7 +1,3 @@
 <footer class="main-footer">
-<div class="pull-right hidden-xs">
-  <b>Version</b> 2.4.0
-</div>
-<strong>Copyright &copy; 2018 STMIK BANI SALEH</strong> All rights
-reserved.
+<strong>Copyright &copy; 2019 REPOSITORY TEKNIK ELEKTRO UNJANI</strong>
 </footer>
