@@ -6,9 +6,9 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 
-assets/files/.*
+# assets/files/.*
 
-assets/images/upload/.*
+# assets/images/upload/.*
 
 !application/*/.htaccess
 
