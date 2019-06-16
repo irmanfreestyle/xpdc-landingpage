@@ -25,12 +25,16 @@
                                 <tr>
                                     <td><?=$no++?></td>
                                     <td>
-                                        <img src="<?=base_url()?>assets/images/upload/<?=$file->gambar_file?>" width="80">
+                                        <?php if(strlen($file->gambar_file)): ?>
+                                            <img src="<?=base_url()?>assets/images/upload/<?=$file->gambar_file?>" width="80">
+                                            <?php else: ?>
+                                            -
+                                        <?php endif; ?>
                                     </td>
-                                    <td><?=$file->judul?></td>
-                                    <td><?=$file->pengarang?></td>
-                                    <td><?=$file->dosen_pembimbing?></td> 
-                                    <td><?=$file->kata_kunci?></td>
+                                    <td><?php echo strlen($file->judul)? $file->judul : '-'?></td>
+                                    <td><?php echo strlen($file->pengarang)? $file->pengarang : '-'?></td>
+                                    <td><?php echo strlen($file->dosen_pembimbing)? $file->dosen_pembimbing : '-'?></td> 
+                                    <td><?php echo strlen($file->kata_kunci)? $file->kata_kunci : '-'?></td>
                                     <td>
                                         <a href="<?=base_url()?>assets/files/<?=$file->nama_file?>" download>Download File</a>
                                     </td>
@@ -39,7 +43,7 @@
                                     </td>
                                     <td>
                                         <button class="btn btn-info btn-sm">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</button>
+                                        <a href="admin/deletefile?id_file=<?=$file->id_file?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</a>
                                     </td>
                                 </tr>
                             <?php endif;?>

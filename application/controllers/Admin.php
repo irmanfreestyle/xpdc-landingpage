@@ -77,5 +77,12 @@ class Admin extends CI_Controller {
             redirect(base_url().'admin/uploadpage');
 		}
     }
+
+    function deletefile() {
+        $file_id = $this->input->get('id_file');
+
+        $this->db->delete('files', ['id_file'=>$file_id]);
+        redirect(base_url().'admin');
+    }
 	
 }

@@ -30,7 +30,9 @@
             <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi officia possimus esse temporibus adipisci minus. Neque nesciunt magnam quae quo dolorum quis ipsam debitis asperiores pariatur
             </p>
-            <button class="btn btn-block bg-success text-light">Lihat Repository</button>
+            <a href="<?=base_url()?>repository">
+                <button class="btn btn-block bg-success text-light">Lihat Repository</button>
+            </a>            
         </div>
     </div>
 </div>
@@ -46,18 +48,25 @@
                 E-Book Upload Terbaru
             </h5>
             <div>
-                <?php for($i=0;$i<6;$i++): ?>
-                    <div class="card py-2 px-2 my-3">
-                        <a href="">
+                <?php foreach($files as $file): ?>
+                    <?php if($file->kategori == 'ebook'): ?>
+                        <?php $ebook=1; ?>
+                        <a class="card py-2 px-2 my-3" href="<?=base_url()?>detail?id_file=<?=$file->id_file?>">
                             <h6 class="text-secondary font-weight-bold">
-                                PENGARUH ETIKA PROFESI AUDITOR TERHADAP PERTIMBANGAN TINGKAT MATERIALITAS DALAM PEMERIKSAAN LAPORAN KEUANGAN   
-                            </h6>
+                            <?=$file->judul?>
+                            </h6>                            
+                            <small class="text-secondary">
+                                diupload pada <?= date('d M Y', strtotime($file->tgl_upload)); ?>
+                            </small>
+                            <div>
+                                <button class="py-0 px-1 btn btn-sm btn-outline-success" disabled>
+                                    <?=$file->kategori?>
+                                </button>
+                            </div>
                         </a>
-                        <small class="text-secondary">
-                            diupload pada 12 Juni 2019
-                        </small>
-                    </div>
-                <?php endfor;?>
+                    <?php endif;?>
+                <?php endforeach;?>
+                <?php if(!isset($ebook)) {echo "<div class='text-secondary'>Tidak ada ebook</div>";} ?>
             </div>
         </div>
         <div class="col sm-12 md-6">
@@ -65,18 +74,25 @@
                 Repository Upload Terbaru
             </h5>
             <div>
-                <?php for($i=0;$i<6;$i++): ?>
-                    <div class="card py-2 px-2 my-3">
-                        <a href="">
+                <?php foreach($files as $file): ?>
+                    <?php if($file->kategori == 'skripsi' || $file->kategori == 'jurnal'): ?>
+                        <?php $repo=1; ?>
+                        <a class="card py-2 px-2 my-3" href="<?=base_url()?>detail?id_file=<?=$file->id_file?>">               
                             <h6 class="text-secondary font-weight-bold">
-                            CAPITAL ASSET PRICING MODEL (CAPM) SEBAGAI SALAH SATU METODE UNTUK MENENTUKAN SAHAM EFISIEN
-                            </h6>
+                            <?=$file->judul?>
+                            </h6>                            
+                            <small class="text-secondary">
+                                diupload pada <?= date('d M Y', strtotime($file->tgl_upload)); ?>
+                            </small>
+                            <div>
+                                <button class="py-0 px-1 btn btn-sm btn-outline-success" disabled>
+                                    <?=$file->kategori?>
+                                </button>
+                            </div>
                         </a>
-                        <small class="text-secondary">
-                            diupload pada 12 Juni 2019
-                        </small>
-                    </div>
-                <?php endfor;?>
+                    <?php endif;?>
+                <?php endforeach;?>
+                <?php if(!isset($repo)) {echo "<div class='text-secondary'>Tidak ada repository</div>";} ?>
             </div>
         </div>    
     </div>
