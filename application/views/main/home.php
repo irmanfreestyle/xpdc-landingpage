@@ -1,11 +1,11 @@
 <div class="unjani-header">
-    <div class="unjani-header-image" style="background-image: url('<?=base_url()?>assets/images/default/header.jpg'"></div>
-    <div class="search-box">
-        <input type="text" placeholder="Cari Jurnal atau E-book...">
-        <div class="search-btn">
+    <div class="unjani-header-image" style="background-image: url('<?=base_url()?>assets/images/default/header.jpg'"></div>    
+    <form class="search-box" action="<?=base_url()?>home/search/" method="get">
+        <input type="text" name="keyword" placeholder="Cari Jurnal atau E-book...">
+        <button type="submit" class="search-btn">
             <i class="fas fa-search"></i>
-        </div>
-    </div>
+        </button>
+    </form>    
 </div>
 
 

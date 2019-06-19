@@ -23,3 +23,5 @@ function uploadImage(e, baseUrl) {
         }
     })
 }
+
+

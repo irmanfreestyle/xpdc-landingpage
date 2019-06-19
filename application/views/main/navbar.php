@@ -1,5 +1,3 @@
-
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success unjani-navbar">
   <a class="navbar-brand font-weight-bold" href="<?=base_url()?>">REPOSITORY TE UNJANI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,12 +13,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url()?>ebook">
+        <a class="nav-link active" href="<?=base_url()?>ebook">
         <i class="fas fa-book"></i>
         E-Book</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url()?>repository">
+        <a class="nav-link active" href="<?=base_url()?>repository">
         <i class="fas fa-box-open"></i>
         Repository</a>
       </li>

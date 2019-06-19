@@ -60,14 +60,16 @@
             
         </div>
         <div class="col sm-12 col-md-5">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Cari">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-                        <i class="fas fa-search text-success"></i>
-                    </button>
+            <form  action="<?=base_url()?>home/search/" method="get">
+                <div class="input-group mb-3">                
+                    <input type="text" class="form-control" placeholder="Cari" name="keyword">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                            <i class="fas fa-search text-success"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
             
             <br>
             <span class="font-weight-bold text-success">

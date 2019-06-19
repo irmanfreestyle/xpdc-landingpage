@@ -48,6 +48,9 @@
     box-shadow: 1px 4px 6px rgba(0,0,0,0.3);
 }
 .search-box .search-btn {
+    border: none!important;
+    outline: none!important;
+    box-shadow: none!important;
     border-radius: 0px 100px 100px 0px;
     color: white;
     background: orange;    
