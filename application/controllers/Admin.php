@@ -26,6 +26,53 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/template', $data);	
     }
 
+    function changePasswordPage() {
+        $data['title'] = "Ubah Password | Repository TE Unjani";
+        $data['page'] = 'UBAH PASSWORD | REPOSITORY TE UNJANI';
+        $data['content'] = "admin/changePassword.php";
+		$this->load->view('admin/template', $data);
+    }
+
+
+    function loginPage() {
+        $data['title'] = "Login Admin | Repository TE Unjani";                
+		$this->load->view('admin/login', $data);
+    }
+
+    function login() {
+        $password = $this->input->post('password');
+        $this->db->where('password', $password);
+        $check = $this->db->get('users');
+        if($check->num_rows() > 0) {
+            $this->session->set_userdata('loged_in', true);
+            redirect(base_url().'admin/');
+        } else {            
+            redirect(base_url().'admin/loginPage?password=wrong');
+        }
+    }
+
+    function logout() {
+        unset($_SESSION['loged_in']);
+        redirect(base_url().'admin/loginPage');
+    }
+
+    function changePassword() {
+        $oldPassword = $this->input->post('old-password');
+        $newPassword = $this->input->post('new-password');
+
+        $this->db->where('password', $oldPassword);
+        $res = $this->db->get('users');
+        
+        if($res->num_rows() > 0) {
+            $this->db->update('users', ['password' => $newPassword]);
+            $this->session->set_flashdata('changePassword', 'Password Berhasil Dirubah');
+            redirect(base_url().'admin/changePasswordPage');
+        } else {
+            $this->session->set_flashdata('changePassword', 'Password Lama Salah');
+            redirect(base_url().'admin/changePasswordPage');
+        }
+    }
+
     function uploadimage() {
         $config['upload_path']          = 'assets/images/upload/';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg';

@@ -1,3 +1,10 @@
+<?php 
+  if(!$this->session->has_userdata('loged_in')) {
+    redirect(base_url().'admin/loginPage');
+  }
+  
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +46,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="<?php echo base_url(); ?>assets/admin-lte/index2.html" class="logo">
+    <a href="<?php echo base_url(); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>E</span>
       <!-- logo for regular state and mobile devices -->

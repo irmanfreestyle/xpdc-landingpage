@@ -42,9 +42,9 @@
                                         <?= date('d M Y', strtotime($file->tgl_upload)); ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-sm">
+                                        <!-- <button type="button" class="btn btn-info btn-sm">
                                             Edit
-                                        </button>
+                                        </button> -->
                                         <a href="admin/deletefile?id_file=<?=$file->id_file?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</a>
                                     </td>
                                 </tr>
@@ -90,9 +90,9 @@
                                         <?= date('d M Y', strtotime($file->tgl_upload)); ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-sm">
+                                        <!-- <button type="button" class="btn btn-info btn-sm">
                                             Edit
-                                        </button>
+                                        </button> -->
                                         <a href="admin/deletefile?id_file=<?=$file->id_file?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</a>
                                     </td>
                                 </tr>
@@ -138,9 +138,9 @@
                                         <?= date('d M Y', strtotime($file->tgl_upload)); ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-sm">
+                                        <!-- <button type="button" class="btn btn-info btn-sm">
                                             Edit
-                                        </button>
+                                        </button> -->
                                         <a href="admin/deletefile?id_file=<?=$file->id_file?>" class="btn btn-danger btn-sm" onclick="return confirm('Hapus?')">Hapus</a>
                                     </td>
                                 </tr>

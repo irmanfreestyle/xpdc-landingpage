@@ -10,5 +10,17 @@
       <i class="fa fa-upload"></i>
       <span>Upload File</span>
     </a>         
+  </li>
+  <li>
+    <a href="<?php echo base_url() ?>admin/changePasswordPage">
+      <i class="fa fa-key"></i>
+      <span>Ubah Password</span>
+    </a>         
+  </li>
+  <li>
+    <a href="<?php echo base_url() ?>admin/logout" class="text-red">
+      <i class="fa fa-key"></i>
+      <span>Logout</span>
+    </a>         
   </li>  
 </ul>
